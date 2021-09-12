@@ -2,48 +2,35 @@ package ru.job4j.puzzle;
 
 public class Win {
     public static boolean check(int[][] board) {
-        if (firstRowIndex(board) >= 0 && checkColumn(board, firstRowIndex(board))) {
-            return true;
-        } else if (firstColumnIndex(board) >= 0 && checkRow(board, firstColumnIndex(board))) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public static int firstColumnIndex(int[][] array) {
-        for (int i = 0; i < array[0].length; i++) {
-            if (array[0][i] == 1) {
-                return i;
+        boolean result = false;
+        for (int i = 0; i < board.length; i++) {
+            if (board[i][i] == 1 && (monoHorizontal(board, i) || monoVertical(board, i))) {
+                result = true;
+                break;
             }
         }
-        return -1;
+        return result;
     }
 
-    public static int firstRowIndex(int[][] array) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i][0] == 1) {
-                return i;
+    public static boolean monoHorizontal(int[][] board, int row) {
+        boolean result = true;
+        for (int cell = 0; cell < board[row].length; cell++) {
+            if (board[row][cell] != 1) {
+                result = false;
+                break;
             }
         }
-        return -1;
+        return result;
     }
 
-    public static boolean checkColumn(int[][] array, int index) {
-        for (int num : array[index]) {
-            if (num != 1) {
-                return false;
+    public static boolean monoVertical(int[][] board, int column) {
+        boolean result = true;
+        for (int[] row : board) {
+            if (row[column] != 1) {
+                result = false;
+                break;
             }
         }
-        return true;
-    }
-
-    public static boolean checkRow(int[][] array, int index) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i][index] != 1) {
-                return false;
-            }
-        }
-        return true;
+        return result;
     }
 }
