@@ -26,7 +26,9 @@ public class BishopBlack implements Figure {
             int x = position.getX();
             int y = position.getY();
             for (int i = 0; i < size; i++) {
-                steps[i] = Cell.findBy(x += deltaX ,y += deltaY);
+                x += deltaX;
+                y += deltaY;
+                steps[i] = Cell.findBy(x, y);
             }
             return steps;
         }
@@ -40,7 +42,7 @@ public class BishopBlack implements Figure {
         int y1 = source.getY();
         int x2 = dest.getX();
         int y2 = dest.getY();
-        if (x1 < x2 && y1 > y2 || x1 > x2 && y1 < y2 ) {
+        if (x1 < x2 && y1 > y2 || x1 > x2 && y1 < y2) {
             return x1 + y1 == x2 + y2;
         } else {
             return x1 - y1 == x2 - y2;
