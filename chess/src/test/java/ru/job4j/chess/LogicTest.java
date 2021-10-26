@@ -7,7 +7,7 @@ import ru.job4j.chess.firuges.black.BishopBlack;
 public class LogicTest {
 
     @Test(expected = FigureNotFoundException.class)
-    public void WhenNotFigureThenExc() throws OccupiedCellException,
+    public void whenNotFigThenExc() throws OccupiedCellException,
             FigureNotFoundException {
         Cell sours = Cell.C1;
         Cell dest = Cell.G5;
@@ -17,7 +17,7 @@ public class LogicTest {
     }
 
     @Test(expected = OccupiedCellException.class)
-    public void WhenOccupiedWayThenExc() throws OccupiedCellException,
+    public void whenOccuWayThenExc() throws OccupiedCellException,
             FigureNotFoundException {
         Cell sours = Cell.C1;
         Cell dest = Cell.G5;
@@ -28,7 +28,7 @@ public class LogicTest {
     }
 
     @Test(expected = ImpossibleMoveException.class)
-    public void WhenC1G7MoveThenExc() throws OccupiedCellException,
+    public void whenC1G7ThenExc() throws OccupiedCellException,
             FigureNotFoundException, ImpossibleMoveException {
         Cell sours = Cell.C1;
         Cell dest = Cell.G7;
