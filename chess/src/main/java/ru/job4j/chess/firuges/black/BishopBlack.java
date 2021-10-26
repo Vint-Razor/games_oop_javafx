@@ -18,7 +18,7 @@ public class BishopBlack implements Figure {
 
     @Override
     public Cell[] way(Cell dest) {
-        if (isDiagonal(this.position, dest)) {
+        if (isDiagonal(position, dest)) {
             int size = Math.abs(position.getX() - dest.getX());
             Cell[] steps = new Cell[size];
             int deltaX = position.getX() < dest.getX() ? 1 : -1;

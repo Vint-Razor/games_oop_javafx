@@ -42,7 +42,7 @@ public class BishopBlackTest {
     }
 
     @Test
-    public void position() {
+    public void whenG8ThenG8() {
         Cell actual = Cell.G8;
         Figure rightBB = new BishopBlack(actual);
         Cell expected = rightBB.position();
